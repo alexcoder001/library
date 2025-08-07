@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
 </head>
+
 <body>
-    
+
+    <nav>
+        <div class="container">
+            <div class="logo"><span>lib</span>rary</div>
+            <button id="openModalBtn" class="btn">Add a book</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Your books</h2>
+        <div class="books" id="booksContainer"></div>
+    </main>
+
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <div class="modal" id="modal">
+        <form>
+            <div class="form-input">
+                <label for="title">Title</label>
+                <input type="text" id="title" required />
+            </div>
+            <div class="form-input">
+                <label for="author">Author</label>
+                <input type="text" id="author" required />
+            </div>
+            <div class="form-input">
+                <label for="pages">Number of pages</label>
+                <input type="number" id="pages" required />
+            </div>
+            <label for="read">Read</label>
+            <input type="checkbox" id="read" />
+
+            <br />
+            <button class="btn" type="submit" id="addBookBtn">Add</button>
+            <button class="btn btn-outline" type="button" id="closeModalBtn">Cancel</button>
+        </form>
+    </div>
+
 </body>
+
 </html>

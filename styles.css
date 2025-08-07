@@ -1,0 +1,224 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Eczar';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/eczar-v26-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Eczar';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/eczar-v26-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Overpass';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/overpass-v18-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Overpass';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/overpass-v18-latin-600.woff2') format('woff2');
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #62929e;
+    --secondary: #dedcbe;
+    --snow: #fdfdff;
+    --dark: #393d3f;
+    --rounded: 8px;
+}
+
+body {
+    background: var(--snow);
+    font-family: 'Eczar', serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav {
+    border-bottom: 1px solid var(--dark);
+}
+
+nav>.container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+h2 {
+    margin: 1rem 0;
+}
+
+.btn {
+    border: none;
+    font-size: 1rem;
+    font-family: 'Overpass', sans-serif;
+    font-weight: 400;
+    padding: 10px 16px;
+    border-radius: var(--rounded);
+    color: var(--dark);
+    background-color: var(--secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: color-mix(in srgb, var(--secondary) 85%, black 15%);
+}
+
+.btn-outline {
+    border: 1px solid var(--dark);
+    background-color: transparent;
+    color: var(--dark);
+}
+
+.btn-outline:hover {
+    background-color: var(--dark);
+    color: var(--snow);
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--rounded);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+}
+
+.form-input label {
+    margin-bottom: 0.25rem;
+    font-family: 'Overpass', sans-serif;
+}
+
+.form-input input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--dark);
+    border-radius: var(--rounded);
+    font-family: 'Overpass', sans-serif;
+}
+
+input[type="checkbox"] {
+    margin: 1rem 0;
+}
+
+.books {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 12px);
+    font-family: 'Overpass', serif;
+    padding: 1.25rem;
+    border: 1px solid var(--dark);
+    border-radius: var(--rounded);
+    transition: background-color .3s;
+}
+
+.book.read {
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.book p {
+    margin-bottom: 0.5rem;
+}
+
+.book h3 {
+    color: var(--dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.book .author {
+    color: rgb(153, 153, 153);
+}
+
+.book .pages .number {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.book .status {
+    font-size: 1.25rem;
+}
+
+.book button {
+    justify-self: flex-end;
+}
