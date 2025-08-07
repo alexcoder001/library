@@ -18,8 +18,8 @@
     font-display: swap;
     font-family: 'Overpass';
     font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/overpass-v18-latin-regular.woff2') format('woff2');
+    font-weight: 500;
+    src: url('../fonts/overpass-v18-latin-500.woff2') format('woff2');
 }
 
 @font-face {
@@ -36,14 +36,17 @@
 }
 
 :root {
-    --primary: #62929e;
-    --secondary: #dedcbe;
+    --primary: #3C896D;
+    --secondary: #C6C5B9;
     --snow: #fdfdff;
     --dark: #393d3f;
     --rounded: 8px;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background: var(--snow);
     font-family: 'Eczar', serif;
 }
@@ -56,10 +59,11 @@ body {
 
 nav {
     border-bottom: 1px solid var(--dark);
+    background-color: var(--secondary);
 }
 
 nav>.container {
-    height: 100px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,27 +81,29 @@ nav>.container {
 
 h2 {
     margin: 1rem 0;
+    font-weight: 400;
+    font-size: 1.75rem;
 }
 
 .btn {
     border: none;
     font-size: 1rem;
     font-family: 'Overpass', sans-serif;
-    font-weight: 400;
-    padding: 10px 16px;
+    font-weight: 500;
+    padding: 8px 16px;
     border-radius: var(--rounded);
-    color: var(--dark);
-    background-color: var(--secondary);
+    color: var(--snow);
+    background-color: var(--primary);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background-color: color-mix(in srgb, var(--secondary) 85%, black 15%);
+    background-color: color-mix(in srgb, var(--primary) 80%, black 20%);
 }
 
 .btn-outline {
-    border: 1px solid var(--dark);
+    border: 2px solid var(--dark);
     background-color: transparent;
     color: var(--dark);
 }
@@ -143,6 +149,12 @@ body.modal-open {
     max-width: 400px;
 }
 
+.modal .buttons {
+    display: flex;
+    justify-content: end;
+    gap: .5rem;
+}
+
 .modal.visible {
     opacity: 1;
     visibility: visible;
@@ -152,7 +164,7 @@ body.modal-open {
 .form-input {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .form-input label {
@@ -185,14 +197,17 @@ input[type="checkbox"] {
     width: calc(25% - 12px);
     font-family: 'Overpass', serif;
     padding: 1.25rem;
-    border: 1px solid var(--dark);
+    border: 2px solid #c9c9c9;
     border-radius: var(--rounded);
-    transition: background-color .3s;
+    transition: all .3s;
 }
 
 .book.read {
-    background-color: var(--secondary);
-    border: 1px solid var(--secondary);
+    border: 2px solid var(--primary);
+}
+
+.book.read .status {
+    color: var(--primary);
 }
 
 .book p {
@@ -207,7 +222,7 @@ input[type="checkbox"] {
 }
 
 .book .author {
-    color: rgb(153, 153, 153);
+    color: #999999;
 }
 
 .book .pages .number {
@@ -216,9 +231,22 @@ input[type="checkbox"] {
 }
 
 .book .status {
+    align-self: flex-end;
+    justify-self: flex-start;
     font-size: 1.25rem;
 }
 
 .book button {
     justify-self: flex-end;
+}
+
+footer {
+    margin-top: auto;
+    padding: .75rem 0;
+    border-top: 1px solid var(--dark);
+    background-color: var(--secondary);
+}
+
+footer p {
+    text-align: center;
 }

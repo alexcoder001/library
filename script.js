@@ -81,7 +81,7 @@ function displayBook(book) {
     if (book.read) {
         bookItem.classList.add('read');
     }
-    
+
     markBtn.addEventListener('click', () => {
         const bookId = bookItem.getAttribute('data-id');
         const bookToUpdate = books.find(b => b.id === bookId);

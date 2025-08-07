@@ -18,9 +18,11 @@
         </div>
     </nav>
 
-    <main class="container">
-        <h2>Your books</h2>
-        <div class="books" id="booksContainer"></div>
+    <main>
+        <div class="container">
+            <h2>Your books</h2>
+            <div class="books" id="booksContainer"></div>
+        </div>
     </main>
 
     <div id="modalOverlay" class="modal-overlay"></div>
@@ -41,12 +43,19 @@
             </div>
             <label for="read">Read</label>
             <input type="checkbox" id="read" />
-
-            <br />
-            <button class="btn" type="submit" id="addBookBtn">Add</button>
-            <button class="btn btn-outline" type="button" id="closeModalBtn">Cancel</button>
+            <br>
+            <div class="buttons">
+                <button class="btn btn-outline" type="button" id="closeModalBtn">Cancel</button>
+                <button class="btn" type="submit" id="addBookBtn">Add</button>
+            </div>
         </form>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>Created by epunksandr 2025</p>
+        </div>
+    </footer>
 
 </body>
 
