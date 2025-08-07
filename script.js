@@ -5,6 +5,7 @@ const overlay = document.querySelector('#modalOverlay');
 const addBookBtn = document.querySelector('#addBookBtn');
 const form = document.querySelector('form');
 const booksContainer = document.querySelector('#booksContainer');
+const message = document.querySelector('#message');
 
 let books = [];
 
@@ -40,6 +41,7 @@ addBookBtn.addEventListener('click', (e) => {
     }
 });
 
+if (books.length === 0) message.classList.remove('hidden');
 
 function addBookToLibrary() {
     const title = document.querySelector('#title').value.trim();
@@ -47,7 +49,7 @@ function addBookToLibrary() {
     const pages = document.querySelector('#pages').value.trim();
     const read = document.querySelector('#read').checked;
 
-    if (!title || !author || !pages) {
+    if (!title || !author || !pages || isNaN(pages) || pages <= 0) {
         alert('Please fill in all fields.');
         return;
     }
@@ -59,7 +61,7 @@ function addBookToLibrary() {
 }
 
 function displayBook(book) {
-    const booksContainer = document.querySelector('#booksContainer');
+    message.classList.add('hidden');
 
     const bookItem = document.createElement('div');
     bookItem.classList.add('book');
@@ -70,7 +72,7 @@ function displayBook(book) {
         <p class="author">${book.author}</p>
         <p class="pages"><span class="number">${book.pages}</span> pages</p>
         <p class="status">${book.read ? 'read' : 'not read'}</p>
-        <button class="btn btn-outline">${book.read ? 'Mark as unread' : 'Mark as read'}</button>
+        <button class="btn btn-outline-dark">${book.read ? 'Mark as unread' : 'Mark as read'}</button>
     `;
 
     booksContainer.appendChild(bookItem);

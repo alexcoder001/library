@@ -57,9 +57,12 @@ body {
     padding: 0 1rem;
 }
 
+input:focus {
+    outline: 1px solid var(--primary);
+}
+
 nav {
     border-bottom: 1px solid var(--dark);
-    background-color: var(--secondary);
 }
 
 nav>.container {
@@ -71,44 +74,92 @@ nav>.container {
 
 .logo {
     font-size: 2rem;
-    font-weight: 600;
-    color: var(--dark);
+    font-weight: 400;
+    color: var(--primary);
 }
 
 .logo span {
-    color: var(--primary);
+    font-weight: 600;
 }
 
 h2 {
     margin: 1rem 0;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 
 .btn {
-    border: none;
+    display: inline-block;
     font-size: 1rem;
     font-family: 'Overpass', sans-serif;
     font-weight: 500;
-    padding: 8px 16px;
+    padding: 8px 14px;
     border-radius: var(--rounded);
-    color: var(--snow);
-    background-color: var(--primary);
+    border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
 }
 
-.btn:hover {
-    background-color: color-mix(in srgb, var(--primary) 80%, black 20%);
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--snow);
 }
 
-.btn-outline {
-    border: 2px solid var(--dark);
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--primary) 85%, white 15%);
+}
+
+.btn-outline-primary {
     background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: var(--snow);
+}
+
+
+.btn-secondary {
+    background-color: var(--secondary);
     color: var(--dark);
 }
 
-.btn-outline:hover {
+.btn-secondary:hover {
+    background-color: color-mix(in srgb, var(--secondary) 85%, black 15%);
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+
+
+.btn-dark {
+    background-color: var(--dark);
+    color: var(--snow);
+}
+
+.btn-dark:hover {
+    background-color: color-mix(in srgb, var(--dark) 85%, white 15%);
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    color: var(--dark);
+    border: 1px solid var(--dark);
+}
+
+.btn-outline-dark:hover {
     background-color: var(--dark);
     color: var(--snow);
 }
@@ -140,6 +191,7 @@ body.modal-open {
     background-color: white;
     padding: 1.5rem;
     border-radius: var(--rounded);
+    font-family: 'Overpass', sans-serif;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
@@ -168,6 +220,7 @@ body.modal-open {
 }
 
 .form-input label {
+    margin-left: .25rem;
     margin-bottom: 0.25rem;
     font-family: 'Overpass', sans-serif;
 }
@@ -180,30 +233,46 @@ body.modal-open {
     font-family: 'Overpass', sans-serif;
 }
 
-input[type="checkbox"] {
-    margin: 1rem 0;
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    input {
+        transform: scale(1.3);
+        margin-bottom: 3px;
+    }
+}
+
+main #message.hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .books {
-    display: flex;
-    flex: 1;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
 }
 
 .book {
     display: flex;
     flex-direction: column;
-    width: calc(25% - 12px);
     font-family: 'Overpass', serif;
     padding: 1.25rem;
-    border: 2px solid #c9c9c9;
+    border: 1px solid #d6d6d6;
     border-radius: var(--rounded);
     transition: all .3s;
 }
 
+.book:hover {
+    -webkit-box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.09);
+}
+
 .book.read {
-    border: 2px solid var(--primary);
+    border: 1px solid var(--primary);
 }
 
 .book.read .status {
@@ -231,6 +300,7 @@ input[type="checkbox"] {
 }
 
 .book .status {
+    color: #999999;
     align-self: flex-end;
     justify-self: flex-start;
     font-size: 1.25rem;
@@ -244,7 +314,6 @@ footer {
     margin-top: auto;
     padding: .75rem 0;
     border-top: 1px solid var(--dark);
-    background-color: var(--secondary);
 }
 
 footer p {

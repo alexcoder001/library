@@ -14,14 +14,16 @@
     <nav>
         <div class="container">
             <div class="logo"><span>lib</span>rary</div>
-            <button id="openModalBtn" class="btn">Add a book</button>
+            <button id="openModalBtn" class="btn btn-outline-primary">Add a book</button>
         </div>
     </nav>
 
     <main>
         <div class="container">
             <h2>Your books</h2>
-            <div class="books" id="booksContainer"></div>
+            <div class="books" id="booksContainer">
+                <p id="message">Any books yet...</p>
+            </div>
         </div>
     </main>
 
@@ -31,22 +33,24 @@
         <form>
             <div class="form-input">
                 <label for="title">Title</label>
-                <input type="text" id="title" required />
+                <input type="text" id="title" />
             </div>
             <div class="form-input">
                 <label for="author">Author</label>
-                <input type="text" id="author" required />
+                <input type="text" id="author" />
             </div>
             <div class="form-input">
                 <label for="pages">Number of pages</label>
-                <input type="number" id="pages" required />
+                <input type="number" id="pages" />
             </div>
-            <label for="read">Read</label>
-            <input type="checkbox" id="read" />
+            <div class="form-check">
+                <input type="checkbox" id="read" />
+                <label for="read">Read</label>
+            </div>
             <br>
             <div class="buttons">
-                <button class="btn btn-outline" type="button" id="closeModalBtn">Cancel</button>
-                <button class="btn" type="submit" id="addBookBtn">Add</button>
+                <button class="btn btn-outline-dark" type="button" id="closeModalBtn">Cancel</button>
+                <button class="btn btn-primary" type="submit" id="addBookBtn">Add</button>
             </div>
         </form>
     </div>
