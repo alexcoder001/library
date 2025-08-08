@@ -319,3 +319,21 @@ footer {
 footer p {
     text-align: center;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid black;
+
+    button {
+        width: 100%;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
