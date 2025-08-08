@@ -68,11 +68,15 @@ function displayBook(book) {
     bookItem.setAttribute('data-id', book.id);
 
     bookItem.innerHTML = `
-        <h3>${book.title}</h3>
-        <p class="author">${book.author}</p>
-        <p class="pages"><span class="number">${book.pages}</span> pages</p>
+    <div class="info">
+        <div class="content">
+            <p class="title">${book.title}</p>
+            <p class="author">${book.author}</p>
+            <p class="pages"><span class="number">${book.pages}</span> pages</p>
+        </div>
         <p class="status">${book.read ? 'read' : 'not read'}</p>
-        <button class="btn btn-outline-dark">${book.read ? 'Mark as unread' : 'Mark as read'}</button>
+    </div>
+    <button class="btn btn-outline-dark">${book.read ? 'Mark as unread' : 'Mark as read'}</button>
     `;
 
     booksContainer.appendChild(bookItem);
