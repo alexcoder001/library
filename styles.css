@@ -265,7 +265,7 @@ main #message.hidden {
     visibility: hidden;
 }
 
-/* Books & Cards */
+/* Book */
 
 .books {
     display: grid;
@@ -281,7 +281,7 @@ main #message.hidden {
     padding: 1.25rem;
     border: 1px solid #d6d6d6;
     border-radius: var(--rounded);
-    transition: box-shadow .3s;
+    transition: all .3s;
 }
 
 .book:hover {
@@ -308,6 +308,7 @@ main #message.hidden {
 
 .book .content {
     padding-right: 4rem;
+    margin-bottom: 1rem;
 }
 
 .book .status {

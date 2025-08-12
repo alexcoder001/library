@@ -29,20 +29,6 @@ function closeModal() {
     overlay.classList.remove('visible');
 }
 
-openBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
-
-addBookBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (addBookToLibrary()) {
-        closeModal();
-        form.reset();
-    }
-});
-
-if (books.length === 0) message.classList.remove('hidden');
-
 function addBookToLibrary() {
     const title = document.querySelector('#title').value.trim();
     const author = document.querySelector('#author').value.trim();
@@ -103,3 +89,16 @@ function displayBook(book) {
     });
 }
 
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+addBookBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (addBookToLibrary()) {
+        closeModal();
+        form.reset();
+    }
+});
+
+if (books.length === 0) message.classList.remove('hidden');
